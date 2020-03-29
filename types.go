@@ -27,3 +27,12 @@ type Rotation struct {
 	Times   uint32
 	Degrees float64
 }
+
+type Transform struct {
+	AnchorPoint  XY
+	Position     XY
+	Scale        XY
+	Rotation     Rotation
+	StartOpacity float64
+	EndOpacity   float64
+}

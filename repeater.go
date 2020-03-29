@@ -1,5 +1,9 @@
 package mojo
 
+const (
+	defaultRepeaterCopies = uint32(3)
+)
+
 type CompositeType uint8
 
 const (
@@ -12,16 +16,8 @@ type Repeater struct {
 	Copies    uint32
 	Offset    float64
 	Composite CompositeType
+	Transform *Transform
 	Children  []Node
-}
-
-type RepeatTransform struct {
-	AnchorPoint  XY
-	Position     XY
-	Scale        XY
-	Rotation     Rotation
-	StartOpacity float64
-	EndOpacity   float64
 }
 
 func (r Repeater) GetChildren() []Node {
@@ -29,5 +25,10 @@ func (r Repeater) GetChildren() []Node {
 }
 
 func (r Repeater) Render(dc *DrawContext) error {
+	// use default properties if needed
+	if r.Copies == 0 {
+		r.Copies = defaultRepeaterCopies
+	}
+
 	return nil
 }
