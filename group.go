@@ -5,6 +5,7 @@ import (
 )
 
 type Group struct {
+	Node
 	Children  []Node
 	Transform *Transform
 }
@@ -14,6 +15,10 @@ func NewGroup() Group {
 		Children:  []Node{},
 		Transform: defaultTransform,
 	}
+}
+
+func (g Group) GetChildren() []Node {
+	return g.Children
 }
 
 func (g Group) Render(dc *DrawContext) error {

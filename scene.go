@@ -28,11 +28,6 @@ func (s *Scene) Render() (image.Image, error) {
 	// recursively render all nodes
 	s.renderNodes(dc, s.Children)
 
-	// render all children in-order
-	for _, c := range s.Children {
-		c.Render(dc)
-	}
-
 	// return the composite image
 	return dc.Image()
 }
