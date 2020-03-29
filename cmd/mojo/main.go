@@ -16,11 +16,11 @@ func main() {
 						X: 100.0,
 						Y: 200.0,
 						R: 50.0,
-						Stroke: mojo.Stroke{
+						Stroke: &mojo.Stroke{
 							Width: 10.0,
 							Color: mojo.NewRGBA(1, 0, 0, 1),
 						},
-						Fill: mojo.Fill{
+						Fill: &mojo.Fill{
 							Color: mojo.NewRGBA(0, 0, 1, 1),
 						},
 					},
